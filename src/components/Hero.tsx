@@ -1,16 +1,27 @@
+'use client';
+
 import Image from 'next/image'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { useTheme } from '@/context/ThemeContext'
+import { useEffect, useState } from 'react'
 
 export default function Hero() {
   const { isDarkMode } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const bgColor = isDarkMode ? '#1a1a1a' : '#EDF4F2';
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const textColor = isDarkMode ? '#EDF4F2' : '#31473A';
   const accentColor = '#7C8363';
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <section className="min-h-screen flex items-center justify-center py-20" style={{ backgroundColor: bgColor }}>
+    <section className="min-h-screen flex items-center justify-center py-20">
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8 relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4" style={{ borderColor: accentColor }}>
@@ -49,7 +60,7 @@ export default function Hero() {
               href="#projects"
               className="px-8 py-3 rounded-full transition-colors"
               style={{ 
-                backgroundColor: bgColor,
+                backgroundColor: 'transparent',
                 color: textColor,
                 border: `2px solid ${textColor}`
               }}
@@ -58,7 +69,7 @@ export default function Hero() {
                 e.currentTarget.style.color = isDarkMode ? '#31473A' : '#EDF4F2';
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = bgColor;
+                e.currentTarget.style.backgroundColor = 'transparent';
                 e.currentTarget.style.color = textColor;
               }}
             >

@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext, useState, useEffect } from 'react';
 
 type ThemeContextType = {
@@ -9,9 +11,10 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check if user has a theme preference in localStorage
+    setMounted(true);
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       setIsDarkMode(true);
@@ -22,6 +25,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setIsDarkMode(!isDarkMode);
     localStorage.setItem('theme', !isDarkMode ? 'dark' : 'light');
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>

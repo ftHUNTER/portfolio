@@ -1,11 +1,16 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,12 +23,16 @@ const Header: React.FC = () => {
     { href: '#contact', label: 'Contact' }
   ];
 
-  const bgColor = isDarkMode ? '#1a1a1a' : '#EDF4F2';
   const textColor = isDarkMode ? '#EDF4F2' : '#31473A';
   const accentColor = '#7C8363';
+  const headerBg = isDarkMode ? 'rgba(26, 26, 26, 0.8)' : 'rgba(237, 244, 242, 0.8)';
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <header style={{ backgroundColor: bgColor }} className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl shadow-lg z-50 rounded-[30px]">
+    <header style={{ backgroundColor: headerBg }} className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl shadow-lg z-50 rounded-[30px] backdrop-blur-sm">
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <div style={{ color: textColor }} className="text-2xl font-bold">REDA CHMOUK</div>
@@ -88,7 +97,7 @@ const Header: React.FC = () => {
         {/* Mobile Navigation - Slide Menu */}
         {isMenuOpen && (
           <div 
-            style={{ backgroundColor: bgColor }}
+            style={{ backgroundColor: headerBg }}
             className="
               lg:hidden fixed top-[72px] right-4 h-auto max-h-[80vh] w-72 shadow-xl 
               rounded-[25px] overflow-hidden backdrop-blur-sm
