@@ -6,8 +6,8 @@ import Header from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Welcome to my professional portfolio showcasing my work and skills",
+  title: "Reda Chmouk - Software Engineer",
+  description: "Welcome to my professional portfolio showcasing my work in software engineering and system architecture",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100`}>
+      <body className={inter.className} style={{ backgroundColor: '#EDF4F2' }}>
         <Header />
         <main className="pt-20">
           {children}
