@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #EDF4F2;
@@ -25,10 +27,6 @@ body {
   color: #31473A;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @keyframes slideIn {
   from {

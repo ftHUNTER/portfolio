@@ -27,11 +27,8 @@ const Header: React.FC = () => {
               <li key={link.href}>
                 <a 
                   href={link.href} 
-                  className="font-medium transition-colors"
-                  style={{ 
-                    color: '#31473A',
-                    ':hover': { color: '#7C8363' }
-                  }}
+                  style={{ color: '#31473A' }}
+                  className="font-medium transition-colors hover:text-[#7C8363]"
                 >
                   {link.label}
                 </a>
