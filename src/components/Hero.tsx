@@ -1,12 +1,19 @@
 import Image from 'next/image'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { useTheme } from '@/context/ThemeContext'
 
 export default function Hero() {
+  const { isDarkMode } = useTheme();
+
+  const bgColor = isDarkMode ? '#1a1a1a' : '#EDF4F2';
+  const textColor = isDarkMode ? '#EDF4F2' : '#31473A';
+  const accentColor = '#7C8363';
+
   return (
-    <section className="min-h-screen flex items-center justify-center py-20" style={{ backgroundColor: '#EDF4F2' }}>
+    <section className="min-h-screen flex items-center justify-center py-20" style={{ backgroundColor: bgColor }}>
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8 relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4" style={{ borderColor: '#7C8363' }}>
+          <div className="mb-8 relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4" style={{ borderColor: accentColor }}>
             <Image
               src="/me.jpeg"
               alt="Reda Chmouk"
@@ -15,13 +22,13 @@ export default function Hero() {
               priority
             />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-8" style={{ color: '#31473A' }}>
-            Hi, I'm <span style={{ color: '#7C8363' }}>Reda Chmouk</span>
+          <h1 className="text-5xl md:text-6xl font-bold mb-8" style={{ color: textColor }}>
+            Hi, I'm <span style={{ color: accentColor }}>Reda Chmouk</span>
           </h1>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6" style={{ color: '#7C8363' }}>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6" style={{ color: accentColor }}>
             Software Engineer
           </h2>
-          <p className="text-xl md:text-2xl mb-12" style={{ color: '#31473A' }}>
+          <p className="text-xl md:text-2xl mb-12" style={{ color: textColor }}>
             I craft elegant solutions to complex problems, specializing in
             system architecture and efficient software development.
           </p>
@@ -30,11 +37,11 @@ export default function Hero() {
               href="#contact"
               className="px-8 py-3 rounded-full transition-colors"
               style={{ 
-                backgroundColor: '#31473A',
-                color: '#EDF4F2'
+                backgroundColor: isDarkMode ? '#EDF4F2' : '#31473A',
+                color: isDarkMode ? '#31473A' : '#EDF4F2'
               }}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#7C8363'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#31473A'}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = accentColor}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = isDarkMode ? '#EDF4F2' : '#31473A'}
             >
               Contact Me
             </a>
@@ -42,17 +49,17 @@ export default function Hero() {
               href="#projects"
               className="px-8 py-3 rounded-full transition-colors"
               style={{ 
-                backgroundColor: '#EDF4F2',
-                color: '#31473A',
-                border: '2px solid #31473A'
+                backgroundColor: bgColor,
+                color: textColor,
+                border: `2px solid ${textColor}`
               }}
               onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = '#31473A';
-                e.currentTarget.style.color = '#EDF4F2';
+                e.currentTarget.style.backgroundColor = isDarkMode ? '#EDF4F2' : '#31473A';
+                e.currentTarget.style.color = isDarkMode ? '#31473A' : '#EDF4F2';
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = '#EDF4F2';
-                e.currentTarget.style.color = '#31473A';
+                e.currentTarget.style.backgroundColor = bgColor;
+                e.currentTarget.style.color = textColor;
               }}
             >
               View Work
@@ -64,9 +71,9 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl transition-colors"
-              style={{ color: '#31473A' }}
-              onMouseOver={(e) => e.currentTarget.style.color = '#7C8363'}
-              onMouseOut={(e) => e.currentTarget.style.color = '#31473A'}
+              style={{ color: textColor }}
+              onMouseOver={(e) => e.currentTarget.style.color = accentColor}
+              onMouseOut={(e) => e.currentTarget.style.color = textColor}
             >
               <FaGithub />
             </a>
@@ -75,9 +82,9 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl transition-colors"
-              style={{ color: '#31473A' }}
-              onMouseOver={(e) => e.currentTarget.style.color = '#7C8363'}
-              onMouseOut={(e) => e.currentTarget.style.color = '#31473A'}
+              style={{ color: textColor }}
+              onMouseOver={(e) => e.currentTarget.style.color = accentColor}
+              onMouseOut={(e) => e.currentTarget.style.color = textColor}
             >
               <FaLinkedin />
             </a>
@@ -86,9 +93,9 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl transition-colors"
-              style={{ color: '#31473A' }}
-              onMouseOver={(e) => e.currentTarget.style.color = '#7C8363'}
-              onMouseOut={(e) => e.currentTarget.style.color = '#31473A'}
+              style={{ color: textColor }}
+              onMouseOver={(e) => e.currentTarget.style.color = accentColor}
+              onMouseOut={(e) => e.currentTarget.style.color = textColor}
             >
               <FaTwitter />
             </a>
