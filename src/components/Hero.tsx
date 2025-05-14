@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { useTheme } from '@/context/ThemeContext'
 import { useEffect, useState } from 'react'
 
@@ -89,7 +89,7 @@ export default function Hero() {
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com/in/reda-chmouk"
+              href="https://www.linkedin.com/in/reda-chmouk-9b383a2a1/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl transition-colors"
@@ -99,17 +99,7 @@ export default function Hero() {
             >
               <FaLinkedin />
             </a>
-            <a
-              href="https://twitter.com/redachmouk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl transition-colors"
-              style={{ color: textColor }}
-              onMouseOver={(e) => e.currentTarget.style.color = accentColor}
-              onMouseOut={(e) => e.currentTarget.style.color = textColor}
-            >
-              <FaTwitter />
-            </a>
+
           </div>
         </div>
       </div>
