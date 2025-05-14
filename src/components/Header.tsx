@@ -16,7 +16,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header style={{ backgroundColor: '#FFFFFF' }} className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl shadow-lg z-50 rounded-[30px]">
+    <header style={{ backgroundColor: '#EDF4F2' }} className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl shadow-lg z-50 rounded-[30px]">
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <div style={{ color: '#31473A' }} className="text-2xl font-bold">REDA CHMOUK</div>
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
               href="#contact" 
               style={{ 
                 backgroundColor: '#31473A',
-                color: '#FFFFFF'
+                color: '#EDF4F2'
               }}
               className="hidden lg:inline-block px-6 py-2 font-medium rounded-full hover:bg-[#7C8363] transition-colors"
             >
@@ -78,7 +78,7 @@ const Header: React.FC = () => {
         {/* Mobile Navigation - Slide Menu */}
         {isMenuOpen && (
           <div 
-            style={{ backgroundColor: '#FFFFFF' }}
+            style={{ backgroundColor: '#EDF4F2' }}
             className="
               lg:hidden fixed top-[72px] right-4 h-auto max-h-[80vh] w-72 shadow-xl 
               rounded-[25px] overflow-hidden backdrop-blur-sm
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
                   href="#contact"
                   style={{ 
                     backgroundColor: '#31473A',
-                    color: '#FFFFFF'
+                    color: '#EDF4F2'
                   }}
                   className="block w-full text-center px-6 py-2 font-medium rounded-full hover:bg-[#7C8363] transition-colors"
                   onClick={() => setIsMenuOpen(false)}
